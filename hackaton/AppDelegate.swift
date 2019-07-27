@@ -1,12 +1,5 @@
-//
-//  AppDelegate.swift
-//  hackaton
-//
-//  Created by godemodegame on 27/07/2019.
-//  Copyright © 2019 godemodegame. All rights reserved.
-//
-
 import UIKit
+import NMAKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +8,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        NMAApplicationContext.set(appId: "IWwaSPm1MeueYSUv96Il", appCode: "23Xlg_5-R5TX-wJtdyX7cQ")
         return true
     }
 

@@ -7,21 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CEED125C7B1E303E7C328E2 /* libPods-hackaton.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE616CC38697EA608BAF1AC0 /* libPods-hackaton.a */; };
+		C1AB91D722EC948E005B672A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1AB91D622EC948E005B672A /* Main.storyboard */; };
+		C1AB91E322ECBD3E005B672A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB91E222ECBD3E005B672A /* SearchViewController.swift */; };
+		C1AB91E722ECD8AA005B672A /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB91E622ECD8AA005B672A /* Organization.swift */; };
+		C1AB91E922ECF6EF005B672A /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB91E822ECF6EF005B672A /* SocialViewController.swift */; };
+		C1AB91EB22ED0ED7005B672A /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1AB91EA22ED0ED7005B672A /* Gradient.swift */; };
 		C1FD8C7722EC6378001A3BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FD8C7622EC6378001A3BAE /* AppDelegate.swift */; };
-		C1FD8C7922EC6378001A3BAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FD8C7822EC6378001A3BAE /* ViewController.swift */; };
-		C1FD8C7C22EC6378001A3BAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FD8C7A22EC6378001A3BAE /* Main.storyboard */; };
+		C1FD8C7922EC6378001A3BAE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FD8C7822EC6378001A3BAE /* MapViewController.swift */; };
 		C1FD8C7E22EC6379001A3BAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1FD8C7D22EC6379001A3BAE /* Assets.xcassets */; };
 		C1FD8C8122EC6379001A3BAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1FD8C7F22EC6379001A3BAE /* LaunchScreen.storyboard */; };
+		C1FD8C8922EC639A001A3BAE /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C1FD8C8822EC639A001A3BAE /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D75C36CA2B455FA62F2833A /* Pods-hackaton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackaton.debug.xcconfig"; path = "Target Support Files/Pods-hackaton/Pods-hackaton.debug.xcconfig"; sourceTree = "<group>"; };
+		975F0C55575DCFD129F5759C /* Pods-hackaton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hackaton.release.xcconfig"; path = "Target Support Files/Pods-hackaton/Pods-hackaton.release.xcconfig"; sourceTree = "<group>"; };
+		BE616CC38697EA608BAF1AC0 /* libPods-hackaton.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hackaton.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1AB91D622EC948E005B672A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C1AB91E222ECBD3E005B672A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C1AB91E622ECD8AA005B672A /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
+		C1AB91E822ECF6EF005B672A /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
+		C1AB91EA22ED0ED7005B672A /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		C1FD8C7322EC6378001A3BAE /* hackaton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hackaton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1FD8C7622EC6378001A3BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C1FD8C7822EC6378001A3BAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C1FD8C7B22EC6378001A3BAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C1FD8C7822EC6378001A3BAE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C1FD8C7D22EC6379001A3BAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1FD8C8022EC6379001A3BAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1FD8C8222EC6379001A3BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1FD8C8822EC639A001A3BAE /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +43,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CEED125C7B1E303E7C328E2 /* libPods-hackaton.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06E65F10B1E7ED6582F9DC79 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0D75C36CA2B455FA62F2833A /* Pods-hackaton.debug.xcconfig */,
+				975F0C55575DCFD129F5759C /* Pods-hackaton.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6BA418C8A78D35B444F128C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE616CC38697EA608BAF1AC0 /* libPods-hackaton.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C1FD8C6A22EC6378001A3BAE = {
 			isa = PBXGroup;
 			children = (
+				C1FD8C8822EC639A001A3BAE /* Podfile */,
 				C1FD8C7522EC6378001A3BAE /* hackaton */,
 				C1FD8C7422EC6378001A3BAE /* Products */,
+				06E65F10B1E7ED6582F9DC79 /* Pods */,
+				6BA418C8A78D35B444F128C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,9 +90,13 @@
 			isa = PBXGroup;
 			children = (
 				C1FD8C7622EC6378001A3BAE /* AppDelegate.swift */,
-				C1FD8C7822EC6378001A3BAE /* ViewController.swift */,
-				C1FD8C7A22EC6378001A3BAE /* Main.storyboard */,
+				C1FD8C7822EC6378001A3BAE /* MapViewController.swift */,
 				C1FD8C7D22EC6379001A3BAE /* Assets.xcassets */,
+				C1AB91D622EC948E005B672A /* Main.storyboard */,
+				C1AB91E222ECBD3E005B672A /* SearchViewController.swift */,
+				C1AB91EA22ED0ED7005B672A /* Gradient.swift */,
+				C1AB91E822ECF6EF005B672A /* SocialViewController.swift */,
+				C1AB91E622ECD8AA005B672A /* Organization.swift */,
 				C1FD8C7F22EC6379001A3BAE /* LaunchScreen.storyboard */,
 				C1FD8C8222EC6379001A3BAE /* Info.plist */,
 			);
@@ -71,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1FD8C8522EC6379001A3BAE /* Build configuration list for PBXNativeTarget "hackaton" */;
 			buildPhases = (
+				2015D509BFE214F467D9F25D /* [CP] Check Pods Manifest.lock */,
 				C1FD8C6F22EC6378001A3BAE /* Sources */,
 				C1FD8C7022EC6378001A3BAE /* Frameworks */,
 				C1FD8C7122EC6378001A3BAE /* Resources */,
+				99BEC608AF73019B3C2E347D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,33 +165,77 @@
 			files = (
 				C1FD8C8122EC6379001A3BAE /* LaunchScreen.storyboard in Resources */,
 				C1FD8C7E22EC6379001A3BAE /* Assets.xcassets in Resources */,
-				C1FD8C7C22EC6378001A3BAE /* Main.storyboard in Resources */,
+				C1FD8C8922EC639A001A3BAE /* Podfile in Resources */,
+				C1AB91D722EC948E005B672A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2015D509BFE214F467D9F25D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-hackaton-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99BEC608AF73019B3C2E347D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-hackaton/Pods-hackaton-frameworks.sh",
+				"${PODS_ROOT}/HEREMapsStarter/framework/NMAKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NMAKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hackaton/Pods-hackaton-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C1FD8C6F22EC6378001A3BAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1FD8C7922EC6378001A3BAE /* ViewController.swift in Sources */,
+				C1AB91E922ECF6EF005B672A /* SocialViewController.swift in Sources */,
+				C1AB91E322ECBD3E005B672A /* SearchViewController.swift in Sources */,
+				C1FD8C7922EC6378001A3BAE /* MapViewController.swift in Sources */,
+				C1AB91E722ECD8AA005B672A /* Organization.swift in Sources */,
 				C1FD8C7722EC6378001A3BAE /* AppDelegate.swift in Sources */,
+				C1AB91EB22ED0ED7005B672A /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C1FD8C7A22EC6378001A3BAE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C1FD8C7B22EC6378001A3BAE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C1FD8C7F22EC6379001A3BAE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -280,6 +365,7 @@
 		};
 		C1FD8C8622EC6379001A3BAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D75C36CA2B455FA62F2833A /* Pods-hackaton.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +384,7 @@
 		};
 		C1FD8C8722EC6379001A3BAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 975F0C55575DCFD129F5759C /* Pods-hackaton.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
