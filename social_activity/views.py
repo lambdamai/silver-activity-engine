@@ -6,20 +6,32 @@ import requests
 
 from requests import get, Session, adapters
 
+
+"""
+https://api.instagram.com/oauth/authorize/?client_id=118e8d13dda245648519242b7508feb0&redirect_uri=https://elfsight.com/service/generate-instagram-access-token/&response_type=code&scope=public_content
+"""
 def getInstaPosts(latitude, longitude, distance, count):
-    params = {
-        'lat': latitude,
-        'lng': longitude,
-        'distance': distance, # radius of requested area
-        'count': count, # number of posts(100 max)
-        'access_token': '37433013.118e8d1.13687b6c616946b6b8629f15fdc82696' #your access token
-    }
-    session = Session()
-    session.mount("https://", adapters.HTTPAdapter(max_retries=10))
+    from instagram_private_api import Client, ClientCompatPatch
 
-    response = session.get("https://api.instagram.com/v1/media/search", params=params, verify=True)
+    user_name = ''
+    password = ''
 
-    return response.json()
+    api = Client(user_name, password)
+    results = api.location_search(latitude, longitude)
+    print(results)
+    for loc in results['venues'][1:3]:
+        if len(str(loc['lat'])) > 7 and len(str(loc['lng'])) > 7:
+            print("Id", loc['external_id'])
+
+            posts = api.location_section(loc['external_id'], api.generate_uuid(), 'recent' )
+            for post in posts['sections'][:15]:
+                
+            print()
+            print("Address",loc['address'])
+            print("Name",loc['name'])
+            print("lat", loc['lat'])
+            print("lng", loc['lng'])
+            print()
 
 
 def index(request):
@@ -46,7 +58,6 @@ def activity_map(request):
                 print(item['category']['title'])
                 print()
             insta_post = getInstaPosts(lat, lng, 300, 90)
-            print(insta_post)
 
 
     return TemplateResponse( request, "activity_form.html", context)
