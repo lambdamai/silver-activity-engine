@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="post">
+    <input id="searchMapInput" class="mapControls" type="text" placeholder="Enter a location">
+    {{ form.lng }}
+    {{ form.lat }}
+    {{ form.category }}
+    {% csrf_token %}
+<input type="submit" value="Отправить">
+    </form>
+    <script>
+        function initMap() {
+            var input = document.getElementById('searchMapInput');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.addListener('place_changed', function () {
+                var place = autocomplete.getPlace();
+                $("#id_lat").val(place.geometry.location.lat());
+                $("#id_lng").val(place.geometry.location.lng());
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmgH3lB-XYKLsxHBa0_kg3WUzHFtPBvN4&libraries=places&callback=initMap"
+            async defer></script>
+
+{% endblock %}
