@@ -27,4 +27,19 @@ class Gradient {
         UIGraphicsEndImageContext()
         return gradientImage
     }
+    
+    func setGradientToTabBar(viewController: UIViewController) {
+        if let tabBar = viewController.tabBarController?.tabBar {
+            let gradient = CAGradientLayer()
+            let bounds = tabBar.bounds
+            gradient.frame = bounds
+            gradient.colors = [UIColor.red.cgColor, UIColor.blue.cgColor]
+            gradient.startPoint = CGPoint(x: 0, y: 0)
+            gradient.endPoint = CGPoint(x: 1, y: 0)
+            
+            if let image = getImageFrom(gradientLayer: gradient) {
+                tabBar.backgroundImage = image
+            }
+        }
+    }
 }
