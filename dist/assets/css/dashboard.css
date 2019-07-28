@@ -4712,10 +4712,10 @@ input[type="button"].btn-block {
 }
 
 .card-header {
-  padding: 1.5rem 1.5rem;
-  margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 40, 100, 0.12);
+	padding: 1.5rem 1.5rem;
+	margin-bottom: 0;
+	background-color: rgba(0, 0, 0, 0.03);
+	border-bottom: 0px;
 }
 
 .card-header:first-child {
@@ -14580,10 +14580,13 @@ a.icon:hover {
 }
 
 .card {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
   position: relative;
   margin-bottom: 1.5rem;
   width: 100%;
+}
+.ops{
+	border-bottom: 1px solid white;
 }
 
 .card .card {
@@ -19052,6 +19055,10 @@ a:hover {
 	max-width: 50%!important;
 
 
+}
+.aig{
+
+	margin-top: 20%;
 }
 .card-body {
 	-ms-flex: 1 1 auto;

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="ru" dir="ltr">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -12,10 +12,10 @@
 	<meta name="mobile-web-app-capable" content="yes">
 	<meta name="HandheldFriendly" content="True">
 	<meta name="MobileOptimized" content="320">
-	<link rel="icon" href="./favicon.ico" type="image/x-icon"/>
-	<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+	<link rel="icon" href="../src/assets/images/ƛ1.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" type="image/x-icon" href="../src/assets/images/ƛ1.ico" />
 	<!-- Generated: 2019-04-04 16:55:45 +0200 -->
-	<title>Homepage - tabler.github.io - a responsive, flat and full featured admin template</title>
+	<title>Супер агрегатор от лямбды</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext">
 	<script src="./assets/js/require.min.js"></script>
@@ -37,6 +37,12 @@
 	<script src="./assets/plugins/input-mask/plugin.js"></script>
 	<!-- Datatables Plugin -->
 	<script src="./assets/plugins/datatables/plugin.js"></script>
+
+	<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+			type="text/javascript" charset="utf-8"></script>
+	<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+			type="text/javascript" charset="utf-8"></script>
+
 </head>
 <body class="">
 <div class="page">
@@ -44,7 +50,7 @@
 		<div class="header py-4">
 			<div class="container">
 				<div class="d-flex">
-					<a class="header-brand" href="./index.html">
+					<a class="header-brand" href="#f">
 					
 					</a>
 
@@ -60,16 +66,20 @@
 
 
 					<li class="nav-item">
-						<a class="header-brand" href="./index.html">
-							<img src="../src/assets/images/ƛ.png" class="header-brand-img" alt="tabler logo">
+						<a class="header-brand ops" href="#">
+							<img src="../src/assets/images/ƛ.png" class="header-brand-img" alt="tabler logo">Рефрижератор
 						</a>
+					</li>
+
+					<li class="nav-item">
+
 						<a class="nav-link  pg ik" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">Информация про компанию</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link active pg" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">Социальная сети</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link pg" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+						<a class="nav-link pg" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Тепловая карта</a>
 					</li>
 				</ul>
 			</div>
@@ -230,9 +240,9 @@
 											<div class="row">
 												<div class="col-sm-6 ">
 													<div class="card mb-3">
-														<img class="card-img-top" src="https://s.appleinsider.ru/2012/02/pic_111.740w_derived.png" alt="Card image cap">
+														<img class="card-img-top" src="https://pp.userapi.com/c850136/v850136968/d1b24/-EMtgReU__k.jpg" alt="Card image cap">
 														<div class="card-body">
-															<h5 class="card-title">САМАЯ КЛАССНАЯ ГРУППА:*)))!!!!!</h5>
+															<h5 class="card-title">Картинки категории Б</h5>
 															<p class="card-text">Последний пост был сделан два дня назад</p>
 
 														</div>
@@ -314,7 +324,7 @@
 														<div class="card-body">
 
 															<div class="form-group">
-																<label class="form-label"><h3 class="card-title">Активность пользователей</h3></label>
+																<label class="form-label"><h3 class="card-title">Активность пользователей</h3></label><br>
 																<div class="selectgroup selectgroup-pills">
 																	<label class="selectgroup-item w-33">
 																		<input disabled type="radio" name="icon-input" value="1" class="selectgroup-input" >
@@ -350,7 +360,12 @@
 
 					</div></div>
 
-				<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+				<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+					<div style="width: 640px; height: 480px" id="mapContainer"></div>
+
+
+
+				</div>
 			</div>
 
 				</div>
@@ -361,6 +376,25 @@
 </div>
 </div>
 
+
+<script>
+	// Initialize the platform object:
+	var platform = new H.service.Platform({
+		'apikey': '{2ESmo1-PLN4GG3GdZpX_xYlA1NDFeZqQKQMJ5BVg2lM}'
+	});
+
+	// Obtain the default map types from the platform object
+	var maptypes = platform.createDefaultLayers();
+
+	// Instantiate (and display) a map object:
+	var map = new H.Map(
+		document.getElementById('mapContainer'),
+		maptypes.vector.normal.map,
+		{
+			zoom: 10,
+			center: { lng: 13.4, lat: 52.51 }
+		});
+</script>
 
 
 </body>
