@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="page">
+        <div class="flex-fill">
+            <div class="header py-4">
+                <div class="container">
+                    <div class="d-flex">
+                        <a class="header-brand" href="#f">
+
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrap">
+                <div class="container asfo">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+
+                        <li class="nav-item">
+                            <a class="header-brand ops" href="#">
+                                <img src="{% static 'assets/images/ƛ.png' %}" class="header-brand-img"
+                                     alt="tabler logo">Рентабельнус
+                            </a>
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link active pg ik" href="#">Расчет рентабельности</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  pg" href="#">Информация о компании в сети</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="container asp" style="height: 500px;">
+                    <div style="display: flex;">
+  <span style="color: black;width: 100%;">
+  <br>Прогноз количества людей: <br> {{ predict }} человек
+</span>
+                    </div>
+                    <div style="width: 100%; height: 100%" id="map"></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+
+        /**
+         * Moves the map to display over Berlin
+         *
+         * @param  {H.Map} map      A HERE Map instance within the application
+         */
+        function moveMapToBerlin(map) {
+            // 55.75091 37.59601
+            map.setCenter({lat: 55.75091, lng: 37.59601});
+            map.setZoom(14);
+        }
+
+        /**
+         * Boilerplate map initialization code starts below:
+         */
+
+//Step 1: initialize communication with the platform
+// In your own code, replace variable window.apikey with your own apikey
+        var platform = new H.service.Platform({
+            apikey: "2ESmo1-PLN4GG3GdZpX_xYlA1NDFeZqQKQMJ5BVg2lM"
+        });
+        var defaultLayers = platform.createDefaultLayers();
+
+        //Step 2: initialize a map - this map is centered over Europe
+        var map = new H.Map(document.getElementById('map'),
+            defaultLayers.vector.normal.map, {
+                center: {lat: 50, lng: 5},
+                zoom: 4,
+                pixelRatio: window.devicePixelRatio || 1
+            });
+        // add a resize listener to make sure that the map occupies the whole container
+        window.addEventListener('resize', () => map.getViewPort().resize());
+
+        //Step 3: make the map interactive
+        // MapEvents enables the event system
+        // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+        var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+        // Create the default UI components
+        var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+        // Now use the map as required...
+        window.onload = function () {
+            moveMapToBerlin(map);
+        };
+
+        // Create a provider for a semi-transparent heat map:
+        var heatmapProvider = new H.data.heatmap.Provider({
+            colors: new H.data.heatmap.Colors({
+                '0': 'red',
+                '1': 'green'
+            }, true),
+            opacity: 0.8,
+            type: 'value',
+            // Paint assumed values in regions where no data is available
+            assumeValues: true
+        });
+
+        // ДАННЫЕ ДЛЯ HEAT MAP
+        heatmapProvider.addData([
+            {% for result in results %}
+                {lat: {{ result.lat }}, lng: {{ result.lng }}, value: {{result.volume}}},
+            {% endfor %}
+        ]);
+
+        // Add a layer for the heatmap provider to the map:
+        map.addLayer(new H.map.layer.TileLayer(heatmapProvider));
+        map.addLayer(defaultLayers.vector.normal.traffic);
+
+        var routingParams = {
+            'mode': 'fastest;pedestrian;',
+            'start': 'geo!{{ agenda_place.lat }},{{ agenda_place.lng }}',
+            'range': '500',
+            'rangetype': 'time'
+        };
+
+        // Define a callback function to process the isoline response.
+        var onResult = function (result) {
+            var center = new H.geo.Point(
+                result.response.center.latitude,
+                result.response.center.longitude),
+                isolineCoords = result.response.isoline[0].component[0].shape,
+                linestring = new H.geo.LineString(),
+                isolinePolygon,
+                isolineCenter;
+
+            // Add the returned isoline coordinates to a linestring:
+            isolineCoords.forEach(function (coords) {
+                linestring.pushLatLngAlt.apply(linestring, coords.split(','));
+            });
+
+            // Create a polygon and a marker representing the isoline:
+            isolinePolygon = new H.map.Polygon(linestring);
+            isolineCenter = new H.map.Marker(center);  // todo УСТАРНОВИТЬ ДРУГОЙ ЦВЕТ
+
+            // Add the polygon and marker to the map:
+            map.addObjects([isolineCenter, isolinePolygon]);
+
+            // Center and zoom the map so that the whole isoline polygon is
+            // in the viewport:
+            map.getViewModel().setLookAtData({bounds: isolinePolygon.getBoundingBox()});
+        };
+
+        // Get an instance of the routing service:
+        var router = platform.getRoutingService();
+
+        // Call the Routing API to calculate an isoline:
+        router.calculateIsoline(
+            routingParams,
+            onResult,
+            function (error) {
+                alert(error.message);
+            }
+        );
+
+
+        // MapEvents enables the event system
+        // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+
+        // create default UI with layers provided by the platform
+        var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+        // Now use the map as required...
+        addInfoBubble(map);
+
+        function addMarkerToGroup(group, coordinate, html) {
+            var marker = new H.map.Marker(coordinate);
+            // add custom data to the marker
+            marker.setData(html);
+            group.addObject(marker);
+        }
+
+
+        function addInfoBubble(map) {
+            var group = new H.map.Group();
+
+            map.addObject(group);
+
+            // add 'tap' event listener, that opens info bubble, to the group
+            group.addEventListener('tap', function (evt) {
+                // event target is the marker itself, group is a parent event target
+                // for all objects that it contains
+                var bubble = new H.ui.InfoBubble(evt.target.getGeometry(), {
+                    // read custom data
+                    content: evt.target.getData()
+                });
+                // show info bubble
+                ui.addBubble(bubble);
+            }, false);
+
+            {%  for shop in shops  %}
+                addMarkerToGroup(group, {lat: {{ shop.lat }}, lng: {{ shop.lng }}}, "{{ shop.name }}");
+            {% endfor %}
+
+
+
+        }
+
+
+    </script>
+{% endblock %}

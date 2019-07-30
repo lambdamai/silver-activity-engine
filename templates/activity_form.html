@@ -1,14 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<form method="post">
-    <input id="searchMapInput" class="mapControls" type="text" placeholder="Enter a location">
-    {{ form.lng }}
-    {{ form.lat }}
-    {{ form.category }}
-    {% csrf_token %}
-<input type="submit" value="Отправить">
-    </form>
+    <div class="page">
+        <div class="flex-fill">
+
+            <div class="container ">
+                <form method="post" class="col-sm-7 adcol ad aig">
+                    <div class="form-group spec">
+                        <div class="row gutters-xs">
+                            <div class="col form-group">
+                                <input id="searchMapInput" class="form-control" type="text" placeholder="Адресс">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group spec">
+                        <div class="row gutters-xs">
+                            <div class="col form-group">
+                                {{ form.category }}
+                                {{ form.lng }}
+                                {% csrf_token %}
+                                {{ form.lat }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" style="width: 100%" type="submit">Поиск</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <script>
         function initMap() {
             var input = document.getElementById('searchMapInput');

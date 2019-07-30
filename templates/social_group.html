@@ -21,37 +21,26 @@
                         <li class="nav-item">
                             <a class="header-brand ops" href="#">
                                 <img src="{% static 'assets/images/ƛ.png' %}" class="header-brand-img"
-                                     alt="tabler logo">Рентабельнус
+                                     alt="tabler logo">Информационус
                             </a>
                         </li>
                         <li class="nav-item">
 
-                            <a class="nav-link active pg ik" href="">Расчет рентабельности</a>
+                            <a class="nav-link  pg ik" href="{% url 'activity_map' %}">Расчет рентабельности</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link  pg" href="{% url 'social_group' %}">Информация о компании в сети</a>
+                            <a class="nav-link active pg" href="">Информация о компании в сети</a>
                         </li>
 
                     </ul>
                 </div>
                 <form method="post" class="col-sm-7 adcol ad aig" style="margin-top: 10%">
                     <div class="form-group spec">
-                        <label style="color: #495057">Введите адрес места аренды</label>
+                        <label style="color: #495057">Введите ИНН</label>
                         <div class="row gutters-xs">
+                            {%csrf_token %}
                             <div class="col form-group">
-                                <input id="searchMapInput" class="form-control" type="text" placeholder="Адресс">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group spec">
-                        <label style="color: #495057">Выберите категорию бизнеса</label>
-
-                        <div class="row gutters-xs">
-                            <div class="col form-group">
-                                {{ form.category }}
-                                {{ form.lng }}
-                                {% csrf_token %}
-                                {{ form.lat }}
+                                <input id="searchMapInput" name="inn" class="form-control" type="text" placeholder="ИНН">
                             </div>
                         </div>
                     </div>
@@ -77,6 +66,6 @@
             });
         }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<GOOGLE_MAPS_KEY>&libraries=places&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmgH3lB-XYKLsxHBa0_kg3WUzHFtPBvN4&libraries=places&callback=initMap"
             async defer></script>
 {% endblock %}

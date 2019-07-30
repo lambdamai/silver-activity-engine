@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from  .views import index, activity_map
+from .views import index, activity_map
+from social_group.views import  social_group
 urlpatterns = [
     path('', index, name="main"),
     path('activity/map', activity_map, name="activity_map"),
+    path('activity/social', social_group, name="social_group"),
 ]
